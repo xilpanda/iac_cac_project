@@ -20,12 +20,15 @@ jobs:
 
     - name: Terraform Init
       run: terraform init
+      env:
+        DIGITALOCEAN_TOKEN: ${{ secrets.DIGITALOCEAN_TOKEN }}
 
     - name: Terraform Plan
       run: terraform plan
+      env:
+        DIGITALOCEAN_TOKEN: ${{ secrets.DIGITALOCEAN_TOKEN }}
 
     - name: Terraform Apply
       run: terraform apply -auto-approve
       env:
         DIGITALOCEAN_TOKEN: ${{ secrets.DIGITALOCEAN_TOKEN }}
-
